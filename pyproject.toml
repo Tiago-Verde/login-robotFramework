@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "login-robotframework"
+version = "0.0.1"
+description = "Casos de testes para login simples"
+authors = ["Tiago Rafael Góes"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+robotframework = "^7.0.1"
+robotframework-browser = "^18.6.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

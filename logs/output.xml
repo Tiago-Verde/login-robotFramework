@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2024-07-23T15:00:42.447300" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="F:\Projetos - TI\robot-framework\login-robotFramework\tests\login.robot">
+<test id="s1-t1" name="Login com sucesso" line="10">
+<kw name="Open Login Page" owner="auth">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-07-23T15:00:43.305715" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "F:\\Projetos - TI\\robot-framework\\login-robotFramework\\logs\\browser\\traces\\df7188da-d851-44a2-bc19-5d9a8bf72781"}</msg>
+<msg time="2024-07-23T15:00:43.508119" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"F:\\Projetos - TI\\robot-framework\\login-robotFramework\\logs\\browser\\traces\\df7188da-d851-44a2-bc19-5d9a8bf72781"}</msg>
+<arg>${browser}</arg>
+<arg>${headless}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-07-23T15:00:43.305715" elapsed="0.202404"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-07-23T15:00:46.894101" level="INFO">Successfully initialized new page object and opened url: https://www.cursoemvideo.com/login/</msg>
+<msg time="2024-07-23T15:00:46.894101" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>https://www.cursoemvideo.com/login/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-07-23T15:00:43.508119" elapsed="3.385982"/>
+</kw>
+<arg>chromium</arg>
+<arg>${False}</arg>
+<doc>Keyword responsável por realizar a abertura do navegador.
+É informado através dos parâmetros ``[browser]`` qual navegador será utilizado
+e através do parâmetro ``[headless]`` informamos se o navegador deve ou
+não ser executado em primeiro plano.</doc>
+<status status="PASS" start="2024-07-23T15:00:43.305715" elapsed="3.588386"/>
+</kw>
+<kw name="Login with secret value" owner="auth">
+<kw name="Fill Secret" owner="Browser">
+<arg>[name=uabb-lf-name]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Fills the given secret from ``variable_name`` into the
+text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:00:46.895101" elapsed="0.049238"/>
+</kw>
+<kw name="Fill Secret" owner="Browser">
+<arg>[id=uabb-password-field]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Fills the given secret from ``variable_name`` into the
+text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:00:46.944339" elapsed="0.018855"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-07-23T15:00:46.964194" level="INFO">Clicks the element '[name=uabb-lf-login-submit]'.</msg>
+<arg>[name=uabb-lf-login-submit]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:00:46.964194" elapsed="0.153599"/>
+</kw>
+<arg>%email_robot</arg>
+<arg>%robot_password</arg>
+<doc>Keyword possui a mesma premissa que a keyword ``Login with``
+no entanto os valores preenchidos através dos argumentos ``[email]``
+e ``[password]`` são omitidos do relatório afim de preservar os
+dados sensiveis. Os valores são carregados através de variaveis de
+ambiente do SO.</doc>
+<status status="PASS" start="2024-07-23T15:00:46.895101" elapsed="0.222692"/>
+</kw>
+<kw name="Wait Sign_out Element" owner="auth">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-07-23T15:00:52.602464" level="INFO">Waited for Element with selector //span[contains(text(), "Início")] at state visible</msg>
+<arg>//span[contains(text(), "Início")]</arg>
+<arg>visible</arg>
+<arg>20</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-07-23T15:00:47.118795" elapsed="5.483669"/>
+</kw>
+<doc>Ponto de espera para confirmação do passo anterior a keyword.</doc>
+<status status="PASS" start="2024-07-23T15:00:47.117793" elapsed="5.485705"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser" type="TEARDOWN">
+<msg time="2024-07-23T15:00:52.759449" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-07-23T15:00:52.604464" elapsed="0.154985"/>
+</kw>
+<doc>Realiza o login informando dados válidos e existentes.
+Para este cenário é esperado que o login seja efetuado com sucesso
+e uma validação de pagina logad é realizado ao fim do teste.</doc>
+<status status="PASS" start="2024-07-23T15:00:43.305715" elapsed="9.454733"/>
+</test>
+<test id="s1-t2" name="Senha incorreta" line="19">
+<kw name="Open Login Page" owner="auth">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-07-23T15:00:52.956246" level="INFO">Switching browser to browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<msg time="2024-07-23T15:00:52.958279" level="INFO">Successfully changed active browser: browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<msg time="2024-07-23T15:00:52.958279" level="INFO">Reusing existing browser with id: browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<arg>${browser}</arg>
+<arg>${headless}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-07-23T15:00:52.956246" elapsed="0.002033"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-07-23T15:00:56.060282" level="INFO">Successfully initialized new page object and opened url: https://www.cursoemvideo.com/login/</msg>
+<msg time="2024-07-23T15:00:56.060282" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>https://www.cursoemvideo.com/login/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-07-23T15:00:52.958279" elapsed="3.102003"/>
+</kw>
+<arg>chromium</arg>
+<arg>${False}</arg>
+<doc>Keyword responsável por realizar a abertura do navegador.
+É informado através dos parâmetros ``[browser]`` qual navegador será utilizado
+e através do parâmetro ``[headless]`` informamos se o navegador deve ou
+não ser executado em primeiro plano.</doc>
+<status status="PASS" start="2024-07-23T15:00:52.955228" elapsed="3.105054"/>
+</kw>
+<kw name="Login with" owner="auth">
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-07-23T15:00:56.062280" level="INFO">Fills the text 'teste@teste.com.br' in the given field.</msg>
+<arg>[name=uabb-lf-name]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:00:56.062280" elapsed="0.036680"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-07-23T15:00:56.099966" level="INFO">Fills the text '123456' in the given field.</msg>
+<arg>[id=uabb-password-field]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:00:56.098960" elapsed="0.016818"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-07-23T15:00:56.115778" level="INFO">Clicks the element '[name=uabb-lf-login-submit]'.</msg>
+<arg>[name=uabb-lf-login-submit]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:00:56.115778" elapsed="0.143696"/>
+</kw>
+<arg>teste@teste.com.br</arg>
+<arg>123456</arg>
+<doc>Keyword responsável pelo preenchimento dos campos email e senha
+no momento de realizar o login. Os valores são informados através dos
+argumentos ``[email]`` e ``[password]``.</doc>
+<status status="PASS" start="2024-07-23T15:00:56.061281" elapsed="0.198193"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-07-23T15:00:59.291755" level="INFO">Waited for Element with selector div [class=uabb-lf-custom-error] at state visible</msg>
+<arg>div [class=uabb-lf-custom-error]</arg>
+<arg>visible</arg>
+<arg>20</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-07-23T15:00:56.259474" elapsed="3.032281"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser" type="TEARDOWN">
+<msg time="2024-07-23T15:00:59.432189" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-2.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-2.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-07-23T15:00:59.292761" elapsed="0.139428"/>
+</kw>
+<doc>Realiza o login informando senha incorreta.
+Para este cenário é esperado que o login não aconteça e seja
+apresentada mensagem de erro ao tentar realizar a operação.</doc>
+<status status="PASS" start="2024-07-23T15:00:52.952164" elapsed="6.481025"/>
+</test>
+<test id="s1-t3" name="Email incorreto" line="29">
+<kw name="Open Login Page" owner="auth">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-07-23T15:00:59.502854" level="INFO">Switching browser to browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<msg time="2024-07-23T15:00:59.502854" level="INFO">Successfully changed active browser: browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<msg time="2024-07-23T15:00:59.502854" level="INFO">Reusing existing browser with id: browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<arg>${browser}</arg>
+<arg>${headless}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-07-23T15:00:59.502854" elapsed="0.000000"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-07-23T15:01:02.383577" level="INFO">Successfully initialized new page object and opened url: https://www.cursoemvideo.com/login/</msg>
+<msg time="2024-07-23T15:01:02.383577" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>https://www.cursoemvideo.com/login/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-07-23T15:00:59.502854" elapsed="2.880723"/>
+</kw>
+<arg>chromium</arg>
+<arg>${False}</arg>
+<doc>Keyword responsável por realizar a abertura do navegador.
+É informado através dos parâmetros ``[browser]`` qual navegador será utilizado
+e através do parâmetro ``[headless]`` informamos se o navegador deve ou
+não ser executado em primeiro plano.</doc>
+<status status="PASS" start="2024-07-23T15:00:59.502854" elapsed="2.880723"/>
+</kw>
+<kw name="Login with" owner="auth">
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-07-23T15:01:02.385587" level="INFO">Fills the text 'testeteste.com.br' in the given field.</msg>
+<arg>[name=uabb-lf-name]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:02.384584" elapsed="0.040213"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-07-23T15:01:02.425802" level="INFO">Fills the text '123789' in the given field.</msg>
+<arg>[id=uabb-password-field]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:02.424797" elapsed="0.020872"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-07-23T15:01:02.446679" level="INFO">Clicks the element '[name=uabb-lf-login-submit]'.</msg>
+<arg>[name=uabb-lf-login-submit]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:02.445669" elapsed="0.152134"/>
+</kw>
+<arg>testeteste.com.br</arg>
+<arg>123789</arg>
+<doc>Keyword responsável pelo preenchimento dos campos email e senha
+no momento de realizar o login. Os valores são informados através dos
+argumentos ``[email]`` e ``[password]``.</doc>
+<status status="PASS" start="2024-07-23T15:01:02.384584" elapsed="0.213219"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-07-23T15:01:05.132061" level="INFO">Waited for Element with selector div [class=uabb-lf-custom-error] at state visible</msg>
+<arg>div [class=uabb-lf-custom-error]</arg>
+<arg>visible</arg>
+<arg>20</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-07-23T15:01:02.597803" elapsed="2.534258"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser" type="TEARDOWN">
+<msg time="2024-07-23T15:01:05.255734" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-3.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-3.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-07-23T15:01:05.133067" elapsed="0.122667"/>
+</kw>
+<doc>Realiza o login informando e-mail incorreto.
+Para este cenário é esperado que o login não aconteça e seja
+apresentada mensagem de erro ao tentar realizar a operação.</doc>
+<status status="PASS" start="2024-07-23T15:00:59.502854" elapsed="5.753498"/>
+</test>
+<test id="s1-t4" name="Campo e-mail vazio" line="39">
+<kw name="Open Login Page" owner="auth">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-07-23T15:01:05.326497" level="INFO">Switching browser to browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<msg time="2024-07-23T15:01:05.326497" level="INFO">Successfully changed active browser: browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<msg time="2024-07-23T15:01:05.326497" level="INFO">Reusing existing browser with id: browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<arg>${browser}</arg>
+<arg>${headless}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-07-23T15:01:05.326497" elapsed="0.000000"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-07-23T15:01:08.674663" level="INFO">Successfully initialized new page object and opened url: https://www.cursoemvideo.com/login/</msg>
+<msg time="2024-07-23T15:01:08.674663" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>https://www.cursoemvideo.com/login/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-07-23T15:01:05.326497" elapsed="3.348166"/>
+</kw>
+<arg>chromium</arg>
+<arg>${False}</arg>
+<doc>Keyword responsável por realizar a abertura do navegador.
+É informado através dos parâmetros ``[browser]`` qual navegador será utilizado
+e através do parâmetro ``[headless]`` informamos se o navegador deve ou
+não ser executado em primeiro plano.</doc>
+<status status="PASS" start="2024-07-23T15:01:05.326497" elapsed="3.348166"/>
+</kw>
+<kw name="Login with" owner="auth">
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-07-23T15:01:08.676664" level="INFO">Fills the text '' in the given field.</msg>
+<arg>[name=uabb-lf-name]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:08.676664" elapsed="0.034023"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-07-23T15:01:08.710687" level="INFO">Fills the text '123789' in the given field.</msg>
+<arg>[id=uabb-password-field]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:08.710687" elapsed="0.013117"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-07-23T15:01:08.724804" level="INFO">Clicks the element '[name=uabb-lf-login-submit]'.</msg>
+<arg>[name=uabb-lf-login-submit]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:08.723804" elapsed="0.131499"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>123789</arg>
+<doc>Keyword responsável pelo preenchimento dos campos email e senha
+no momento de realizar o login. Os valores são informados através dos
+argumentos ``[email]`` e ``[password]``.</doc>
+<status status="PASS" start="2024-07-23T15:01:08.675695" elapsed="0.179608"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-07-23T15:01:08.866950" level="INFO">Waited for Element with selector div [class=uabb-lf-custom-error] at state visible</msg>
+<arg>div [class=uabb-lf-custom-error]</arg>
+<arg>visible</arg>
+<arg>20</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-07-23T15:01:08.856304" elapsed="0.010646"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser" type="TEARDOWN">
+<msg time="2024-07-23T15:01:09.034098" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-4.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-4.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-07-23T15:01:08.868102" elapsed="0.165996"/>
+</kw>
+<doc>Realiza o login informando o campo e-mail vazio.
+Para este cenário é esperado que o login não aconteça e seja
+apresentada mensagem de erro ao tentar realizar a operação.</doc>
+<status status="PASS" start="2024-07-23T15:01:05.326497" elapsed="3.708619"/>
+</test>
+<test id="s1-t5" name="Campo senha vazio" line="49">
+<kw name="Open Login Page" owner="auth">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-07-23T15:01:09.099127" level="INFO">Switching browser to browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<msg time="2024-07-23T15:01:09.101154" level="INFO">Successfully changed active browser: browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<msg time="2024-07-23T15:01:09.101154" level="INFO">Reusing existing browser with id: browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<arg>${browser}</arg>
+<arg>${headless}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-07-23T15:01:09.099127" elapsed="0.002027"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-07-23T15:01:12.237317" level="INFO">Successfully initialized new page object and opened url: https://www.cursoemvideo.com/login/</msg>
+<msg time="2024-07-23T15:01:12.237317" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>https://www.cursoemvideo.com/login/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-07-23T15:01:09.102126" elapsed="3.135191"/>
+</kw>
+<arg>chromium</arg>
+<arg>${False}</arg>
+<doc>Keyword responsável por realizar a abertura do navegador.
+É informado através dos parâmetros ``[browser]`` qual navegador será utilizado
+e através do parâmetro ``[headless]`` informamos se o navegador deve ou
+não ser executado em primeiro plano.</doc>
+<status status="PASS" start="2024-07-23T15:01:09.099127" elapsed="3.138190"/>
+</kw>
+<kw name="Login with" owner="auth">
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-07-23T15:01:12.239318" level="INFO">Fills the text 'teste@teste.com.br' in the given field.</msg>
+<arg>[name=uabb-lf-name]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:12.239318" elapsed="0.032763"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-07-23T15:01:12.272081" level="INFO">Fills the text '' in the given field.</msg>
+<arg>[id=uabb-password-field]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:12.272081" elapsed="0.017821"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-07-23T15:01:12.290909" level="INFO">Clicks the element '[name=uabb-lf-login-submit]'.</msg>
+<arg>[name=uabb-lf-login-submit]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:12.289902" elapsed="0.134482"/>
+</kw>
+<arg>teste@teste.com.br</arg>
+<arg>${EMPTY}</arg>
+<doc>Keyword responsável pelo preenchimento dos campos email e senha
+no momento de realizar o login. Os valores são informados através dos
+argumentos ``[email]`` e ``[password]``.</doc>
+<status status="PASS" start="2024-07-23T15:01:12.238348" elapsed="0.186124"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-07-23T15:01:12.424992" level="INFO">Waited for Element with selector div [class=uabb-lf-custom-error] at state visible</msg>
+<arg>div [class=uabb-lf-custom-error]</arg>
+<arg>visible</arg>
+<arg>20</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-07-23T15:01:12.424992" elapsed="0.000000"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser" type="TEARDOWN">
+<msg time="2024-07-23T15:01:12.578907" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-5.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-5.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-07-23T15:01:12.438907" elapsed="0.140000"/>
+</kw>
+<doc>Realiza o login informando o campo senha vazio.
+Para este cenário é esperado que o login não aconteça e seja
+apresentada mensagem de erro ao tentar realizar a operação.</doc>
+<status status="PASS" start="2024-07-23T15:01:09.096128" elapsed="3.485780"/>
+</test>
+<test id="s1-t6" name="Campo Senha e Email vazios" line="59">
+<kw name="Open Login Page" owner="auth">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-07-23T15:01:12.650078" level="INFO">Switching browser to browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<msg time="2024-07-23T15:01:12.650078" level="INFO">Successfully changed active browser: browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<msg time="2024-07-23T15:01:12.650078" level="INFO">Reusing existing browser with id: browser=b6c4717d-2788-47c5-b175-8a5f111da94b</msg>
+<arg>${browser}</arg>
+<arg>${headless}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-07-23T15:01:12.650078" elapsed="0.000000"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-07-23T15:01:16.651786" level="INFO">Successfully initialized new page object and opened url: https://www.cursoemvideo.com/login/</msg>
+<msg time="2024-07-23T15:01:16.651786" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>https://www.cursoemvideo.com/login/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-07-23T15:01:12.650078" elapsed="4.001708"/>
+</kw>
+<arg>chromium</arg>
+<arg>${False}</arg>
+<doc>Keyword responsável por realizar a abertura do navegador.
+É informado através dos parâmetros ``[browser]`` qual navegador será utilizado
+e através do parâmetro ``[headless]`` informamos se o navegador deve ou
+não ser executado em primeiro plano.</doc>
+<status status="PASS" start="2024-07-23T15:01:12.650078" elapsed="4.001708"/>
+</kw>
+<kw name="Login with" owner="auth">
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-07-23T15:01:16.653787" level="INFO">Fills the text '' in the given field.</msg>
+<arg>[name=uabb-lf-name]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:16.653787" elapsed="0.032775"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-07-23T15:01:16.687577" level="INFO">Fills the text '' in the given field.</msg>
+<arg>[id=uabb-password-field]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:16.686562" elapsed="0.019624"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-07-23T15:01:16.707192" level="INFO">Clicks the element '[name=uabb-lf-login-submit]'.</msg>
+<arg>[name=uabb-lf-login-submit]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-07-23T15:01:16.706186" elapsed="0.139209"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<doc>Keyword responsável pelo preenchimento dos campos email e senha
+no momento de realizar o login. Os valores são informados através dos
+argumentos ``[email]`` e ``[password]``.</doc>
+<status status="PASS" start="2024-07-23T15:01:16.652788" elapsed="0.192607"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-07-23T15:01:16.856657" level="INFO">Waited for Element with selector div [class=uabb-lf-custom-error] at state visible</msg>
+<arg>div [class=uabb-lf-custom-error]</arg>
+<arg>visible</arg>
+<arg>20</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-07-23T15:01:16.845395" elapsed="0.011262"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser" type="TEARDOWN">
+<msg time="2024-07-23T15:01:17.008767" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-6.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-6.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-07-23T15:01:16.860677" elapsed="0.149089"/>
+</kw>
+<doc>Realiza o login informando o campo e-mail  e senha vazios.
+Para este cenário é esperado que o login não aconteça e seja
+apresentada mensagem de erro ao tentar realizar a operação.</doc>
+<status status="PASS" start="2024-07-23T15:01:12.650078" elapsed="4.359688"/>
+</test>
+<doc>Testes de página login</doc>
+<status status="PASS" start="2024-07-23T15:00:42.447300" elapsed="34.624468"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="Login">Login</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-07-23T15:00:42.666018" level="ERROR">Error in file 'F:\Projetos - TI\robot-framework\login-robotFramework\resources\actions\auth.robot' on line 3: Resource file '..\resources\base.resource' does not exist.</msg>
+</errors>
+</robot>
